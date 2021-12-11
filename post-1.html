@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="Open Graph Share">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <title>Post 01</title>
+    <!-- All CSS links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <section class="post">
+        <div class="container">
+            <article class="post-card post-card--single">
+                <a href="#!" class="post-card__head">
+                    <img src="./assets/images/post-1.jpg" alt="post image" class="post-card__head__image">
+                </a>
+                <div class="post-card__body">
+                    <h3 class="post-card__title">
+                        <a href="#!" class="post-card__title__link">First Post Title</a>
+                    </h3>
+                    <p class="post-card__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur autem nulla hic quo, quidem corrupti.</p>
+                </div>
+                <footer class="post-card__footer">
+                    <ul class="post-card__social">
+                        <li class="post-card__social__items">
+                            <a href="#!" data-share="facebook" class="post-card__social__link social-share">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="post-card__social__items">
+                            <a href="#!" data-share="linkedin" class="post-card__social__link social-share">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                        <li class="post-card__social__items">
+                            <a href="#!" data-share="twitter" class="post-card__social__link social-share">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    <!-- All Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="./assets/plugins/Open-Graph-Shape/build/shape.share.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.social-share').shapeShare();
+            var currentLocation = window.location.href;
+            $('meta[property="og:url"]').attr('content', currentLocation);
+            $('meta[property="og:image"]').attr('content', $('.post-card__head__image').attr('src'));
+            $('meta[property="og:description"]').attr('content', $('.post-card__text').text());
+            $('meta[property="og:title"]').attr('content', $('.post-card__title__link').text());
+        });
+    </script>
+</body>
+</html>
